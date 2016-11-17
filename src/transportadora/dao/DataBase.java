@@ -8,6 +8,8 @@ package transportadora.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -17,5 +19,9 @@ public class DataBase {
     public static Connection getConnection() throws SQLException {
         Connection conn = DriverManager.getConnection("derby://localhost:1527/banco", "usuario", "senha");
         return conn;
+    }
+    
+    public static EntityManagerFactory getEntyManegerFactory(){
+        return Persistence.createEntityManagerFactory("transportadoraPU");
     }
 }
