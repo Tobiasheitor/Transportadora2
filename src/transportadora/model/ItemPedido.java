@@ -2,30 +2,30 @@
 package transportadora.model;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
- * @author aluno
+ * @author USUARIO
  */
 @Entity
-public class Caminhao implements Serializable {
+public class ItemPedido implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nome;
-    private Integer capacidade;
     @ManyToOne
-    private Motorista motorista;
-    @OneToMany
-    List<Pedido> pedido;
+    private Produto produto;
+    private double quantidadeProduto;
+    private double valorUnitario;
+    @ManyToOne
+    private Pedido pedido;
+    
 
     public Long getId() {
         return id;
@@ -35,24 +35,6 @@ public class Caminhao implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Integer getCapacidade() {
-        return capacidade;
-    }
-
-    public void setCapacidade(Integer capacidade) {
-        this.capacidade = capacidade;
-    }
-    
-    
-    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -63,10 +45,10 @@ public class Caminhao implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Caminhao)) {
+        if (!(object instanceof ItemPedido)) {
             return false;
         }
-        Caminhao other = (Caminhao) object;
+        ItemPedido other = (ItemPedido) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -75,7 +57,7 @@ public class Caminhao implements Serializable {
 
     @Override
     public String toString() {
-        return "transportadora.model.Caminhao[ id=" + id + " ]";
+        return "transportadora.model.ItemPedido[ id=" + id + " ]";
     }
     
 }

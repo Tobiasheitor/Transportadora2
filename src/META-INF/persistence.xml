@@ -7,6 +7,7 @@
     <class>transportadora.model.Produto</class>
     <class>transportadora.model.Caminhao</class>
     <class>transportadora.model.Pedido</class>
+    <class>transportadora.model.ItemPedido</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/banco"/>
       <property name="javax.persistence.jdbc.user" value="usuario"/>
