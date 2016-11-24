@@ -9,7 +9,7 @@
     <class>transportadora.model.Pedido</class>
     <class>transportadora.model.ItemPedido</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/banco"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/Banco"/>
       <property name="javax.persistence.jdbc.user" value="usuario"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
       <property name="javax.persistence.jdbc.password" value="senha"/>

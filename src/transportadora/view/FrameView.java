@@ -1,6 +1,12 @@
 
 package transportadora.view;
 
+import transportadora.view.cadastro.CadastroCaminhaoView;
+import transportadora.view.cadastro.CadastroFornecedorView;
+import transportadora.view.cadastro.CadastroMotoristaView;
+import transportadora.view.cadastro.CadastroProdutoView;
+import transportadora.view.consulta.ConsultaPedidoView;
+
 
 /**
  *
@@ -26,16 +32,17 @@ public class FrameView extends javax.swing.JFrame {
 
         popupMenu1 = new java.awt.PopupMenu();
         jMenuBar = new javax.swing.JMenuBar();
-        jMenu = new javax.swing.JMenu();
-        jSubMenu = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuCadastro = new javax.swing.JMenu();
+        jCadasFornecedor = new javax.swing.JMenuItem();
+        jCadasCaminhao = new javax.swing.JMenuItem();
+        jCadasMotorista = new javax.swing.JMenuItem();
+        jCadasProduto = new javax.swing.JMenuItem();
+        jMenuConsulta = new javax.swing.JMenu();
+        jConPedidos = new javax.swing.JMenuItem();
+        jConMotorista = new javax.swing.JMenuItem();
+        jConProdutos = new javax.swing.JMenuItem();
+        jConCaminhoes = new javax.swing.JMenuItem();
+        jMenuPedido = new javax.swing.JMenu();
 
         popupMenu1.setLabel("popupMenu1");
         popupMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -46,65 +53,74 @@ public class FrameView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
+        setSize(new java.awt.Dimension(300, 300));
 
-        jMenu.setText("CADASTRO");
-        jMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuCadastro.setText("CADASTRO");
+        jMenuCadastro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jSubMenu.setText("FORNECEDOR");
-        jSubMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        jCadasFornecedor.setText("FORNECEDOR");
+        jCadasFornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jSubMenuMouseClicked(evt);
+                jCadasFornecedorMouseClicked(evt);
             }
         });
-        jSubMenu.addActionListener(new java.awt.event.ActionListener() {
+        jCadasFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jSubMenuActionPerformed(evt);
+                jCadasFornecedorActionPerformed(evt);
             }
         });
-        jMenu.add(jSubMenu);
+        jMenuCadastro.add(jCadasFornecedor);
 
-        jMenuItem1.setText("CAMINHAO");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jCadasCaminhao.setText("CAMINHAO");
+        jCadasCaminhao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jCadasCaminhaoActionPerformed(evt);
             }
         });
-        jMenu.add(jMenuItem1);
+        jMenuCadastro.add(jCadasCaminhao);
 
-        jMenuItem2.setText("MOTORISTA");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jCadasMotorista.setText("MOTORISTA");
+        jCadasMotorista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jCadasMotoristaActionPerformed(evt);
             }
         });
-        jMenu.add(jMenuItem2);
+        jMenuCadastro.add(jCadasMotorista);
 
-        jMenuItem3.setText("PRODUTO");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jCadasProduto.setText("PRODUTO");
+        jCadasProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jCadasProdutoActionPerformed(evt);
             }
         });
-        jMenu.add(jMenuItem3);
+        jMenuCadastro.add(jCadasProduto);
 
-        jMenuBar.add(jMenu);
+        jMenuBar.add(jMenuCadastro);
 
-        jMenu2.setText("CONSULTA");
-        jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuConsulta.setText("CONSULTA");
+        jMenuConsulta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem4.setText("PEDIDOS");
-        jMenu2.add(jMenuItem4);
+        jConPedidos.setText("PEDIDOS");
+        jConPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jConPedidosActionPerformed(evt);
+            }
+        });
+        jMenuConsulta.add(jConPedidos);
 
-        jMenuItem5.setText("MOTORISTAS");
-        jMenu2.add(jMenuItem5);
+        jConMotorista.setText("MOTORISTAS");
+        jMenuConsulta.add(jConMotorista);
 
-        jMenuItem6.setText("PRODUTOS");
-        jMenu2.add(jMenuItem6);
+        jConProdutos.setText("PRODUTOS");
+        jMenuConsulta.add(jConProdutos);
 
-        jMenuItem7.setText("CAMINHOES");
-        jMenu2.add(jMenuItem7);
+        jConCaminhoes.setText("CAMINHOES");
+        jMenuConsulta.add(jConCaminhoes);
 
-        jMenuBar.add(jMenu2);
+        jMenuBar.add(jMenuConsulta);
+
+        jMenuPedido.setText("NOVO PEDIDO");
+        jMenuBar.add(jMenuPedido);
 
         setJMenuBar(jMenuBar);
 
@@ -112,11 +128,11 @@ public class FrameView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGap(0, 498, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 260, Short.MAX_VALUE)
+            .addGap(0, 261, Short.MAX_VALUE)
         );
 
         pack();
@@ -127,33 +143,39 @@ public class FrameView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_popupMenu1ActionPerformed
 
-    private void jSubMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSubMenuMouseClicked
+    private void jCadasFornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCadasFornecedorMouseClicked
        
-    }//GEN-LAST:event_jSubMenuMouseClicked
+    }//GEN-LAST:event_jCadasFornecedorMouseClicked
 
-    private void jSubMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSubMenuActionPerformed
+    private void jCadasFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCadasFornecedorActionPerformed
         // TODO add your handling code here:
         CadastroFornecedorView forn = new CadastroFornecedorView();
         forn.setVisible(true);
-    }//GEN-LAST:event_jSubMenuActionPerformed
+    }//GEN-LAST:event_jCadasFornecedorActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jCadasCaminhaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCadasCaminhaoActionPerformed
         // TODO add your handling code here:
         CadastroCaminhaoView cam = new CadastroCaminhaoView();
         cam.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jCadasCaminhaoActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jCadasProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCadasProdutoActionPerformed
         // TODO add your handling code here:
         CadastroProdutoView prod = new CadastroProdutoView();
         prod.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_jCadasProdutoActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jCadasMotoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCadasMotoristaActionPerformed
         // TODO add your handling code here:
         CadastroMotoristaView moto = new CadastroMotoristaView();
         moto.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_jCadasMotoristaActionPerformed
+
+    private void jConPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConPedidosActionPerformed
+        // TODO add your handling code here:
+        ConsultaPedidoView pedido = new ConsultaPedidoView();
+        pedido.setVisible(true);
+    }//GEN-LAST:event_jConPedidosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,17 +190,18 @@ public class FrameView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jCadasCaminhao;
+    private javax.swing.JMenuItem jCadasFornecedor;
+    private javax.swing.JMenuItem jCadasMotorista;
+    private javax.swing.JMenuItem jCadasProduto;
+    private javax.swing.JMenuItem jConCaminhoes;
+    private javax.swing.JMenuItem jConMotorista;
+    private javax.swing.JMenuItem jConPedidos;
+    private javax.swing.JMenuItem jConProdutos;
     private javax.swing.JMenuBar jMenuBar;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jSubMenu;
+    private javax.swing.JMenu jMenuCadastro;
+    private javax.swing.JMenu jMenuConsulta;
+    private javax.swing.JMenu jMenuPedido;
     private java.awt.PopupMenu popupMenu1;
     // End of variables declaration//GEN-END:variables
 }

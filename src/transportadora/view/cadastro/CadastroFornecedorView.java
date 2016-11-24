@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package transportadora.view;
+package transportadora.view.cadastro;
 
 import transportadora.model.*;
 import transportadora.dao.*;
@@ -137,12 +137,11 @@ public class CadastroFornecedorView extends javax.swing.JFrame {
 
     private void btGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGravarActionPerformed
         // TODO add your handling code here:
-        FornecedorDAO fornecedorDao = new FornecedorDAO();
+        FornecedorDAO fornecedorDao = new FornecedorDAO(DataBase.getEntyManegerFactory());
         Fornecedor fornecedor = new Fornecedor();
         fornecedor.setNome(jCampoNome.getText());
         fornecedor.setProduto(jCampoProduto.getText());
         fornecedorDao.create(fornecedor);
-        
         
     }//GEN-LAST:event_btGravarActionPerformed
 
