@@ -5,7 +5,10 @@
  */
 package transportadora.view.cadastro;
 
+import javax.swing.JOptionPane;
+import transportadora.dao.DataBase;
 import transportadora.dao.MotoristaDAO;
+import transportadora.model.Motorista;
 
 /**
  *
@@ -32,7 +35,7 @@ public class CadastroMotoristaView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jCampoNome = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
@@ -58,7 +61,7 @@ public class CadastroMotoristaView extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jCampoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addComponent(jLabel1))
@@ -74,7 +77,7 @@ public class CadastroMotoristaView extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCampoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -101,7 +104,16 @@ public class CadastroMotoristaView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+        try{
+            MotoristaDAO motoristaDao = new MotoristaDAO(DataBase.getEntyManegerFactory());
+            Motorista motorista = new Motorista();
+            motorista.setNome(jCampoNome.getText());
+            motoristaDao.create(motorista);
+            JOptionPane.showMessageDialog(null, "Gravado com Sucesso!");
+            jCampoNome.setText(null);
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Erro ao Gravar!" + ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -141,9 +153,9 @@ public class CadastroMotoristaView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JTextField jCampoNome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

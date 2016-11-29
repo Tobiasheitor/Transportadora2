@@ -5,6 +5,7 @@
  */
 package transportadora.view.cadastro;
 
+import javax.swing.JOptionPane;
 import transportadora.model.*;
 import transportadora.dao.*;
 
@@ -137,12 +138,18 @@ public class CadastroFornecedorView extends javax.swing.JFrame {
 
     private void btGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGravarActionPerformed
         // TODO add your handling code here:
+        try{
         FornecedorDAO fornecedorDao = new FornecedorDAO(DataBase.getEntyManegerFactory());
         Fornecedor fornecedor = new Fornecedor();
         fornecedor.setNome(jCampoNome.getText());
         fornecedor.setProduto(jCampoProduto.getText());
         fornecedorDao.create(fornecedor);
-        
+        JOptionPane.showMessageDialog(null, "Gravado com Sucesso!");
+        jCampoNome.setText(null);
+        jCampoProduto.setText(null);
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Erro ao Gravar!" + ex);
+        }
     }//GEN-LAST:event_btGravarActionPerformed
 
     /**
