@@ -25,7 +25,7 @@ public class Pedido implements Serializable {
     @OneToMany(mappedBy = "pedido")
     List<ItemPedido> itens;
     @ManyToOne
-    private Caminhao caminhao;
+    Motorista motorista;
     
     public Long getId() {
         return id;
