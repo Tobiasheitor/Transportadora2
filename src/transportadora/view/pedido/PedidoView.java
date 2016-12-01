@@ -5,6 +5,13 @@
  */
 package transportadora.view.pedido;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import transportadora.dao.DataBase;
+import transportadora.dao.FornecedorDAO;
+import transportadora.model.Fornecedor;
+
 /**
  *
  * @author USUARIO
@@ -16,8 +23,27 @@ public class PedidoView extends javax.swing.JFrame {
      */
     public PedidoView() {
         initComponents();
+        inicializar();
     }
-
+    
+    public void inicializar(){
+        
+        Fornecedor fornecedor;
+        fornecedores = new ArrayList<>();
+        try{
+            fornecedorDao = new FornecedorDAO(DataBase.getEntyManegerFactory()); 
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Erro ao conectar ao Banco!");
+        }
+      
+        fornecedores = fornecedorDao.findFornecedorEntities();
+        
+        for(int i=0; i<fornecedorDao.getFornecedorCount(); i++){
+            fornecedor = fornecedores.get(i);
+            jItensFornecedor.addItem(fornecedor.getNome());
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,11 +55,9 @@ public class PedidoView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jItensFornecedor = new javax.swing.JComboBox<>();
 
         jLabel1.setText("Fornecedor:");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -43,8 +67,8 @@ public class PedidoView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(26, 26, 26)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(370, Short.MAX_VALUE))
+                .addComponent(jItensFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(398, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -52,7 +76,7 @@ public class PedidoView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jItensFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(265, Short.MAX_VALUE))
         );
 
@@ -113,8 +137,10 @@ public class PedidoView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jItensFornecedor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+    List<Fornecedor> fornecedores;
+    FornecedorDAO  fornecedorDao;
 }

@@ -45,7 +45,6 @@ public class FrameView extends javax.swing.JFrame {
         jCadasMotorista = new javax.swing.JMenuItem();
         jCadasProduto = new javax.swing.JMenuItem();
         jMenuConsulta = new javax.swing.JMenu();
-        jConPedidos = new javax.swing.JMenuItem();
         jConMotorista = new javax.swing.JMenuItem();
         jConProdutos = new javax.swing.JMenuItem();
         jConCaminhoes = new javax.swing.JMenuItem();
@@ -109,14 +108,6 @@ public class FrameView extends javax.swing.JFrame {
 
         jMenuConsulta.setText("CONSULTA");
         jMenuConsulta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jConPedidos.setText("PEDIDOS");
-        jConPedidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jConPedidosActionPerformed(evt);
-            }
-        });
-        jMenuConsulta.add(jConPedidos);
 
         jConMotorista.setText("MOTORISTAS");
         jConMotorista.addActionListener(new java.awt.event.ActionListener() {
@@ -214,18 +205,6 @@ public class FrameView extends javax.swing.JFrame {
         moto.setVisible(true);
     }//GEN-LAST:event_jCadasMotoristaActionPerformed
 
-    private void jConPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConPedidosActionPerformed
-        // TODO add your handling code here:
-        ConsultaPedidos pedido = new ConsultaPedidos();
-        pedido.setVisible(true);
-    }//GEN-LAST:event_jConPedidosActionPerformed
-
-    private void jConMotoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConMotoristaActionPerformed
-        // TODO add your handling code here:
-        ConsultaMotoristas motorista = new ConsultaMotoristas();
-        motorista.setVisible(true);
-    }//GEN-LAST:event_jConMotoristaActionPerformed
-
     private void jMenuPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPedidoActionPerformed
 
     }//GEN-LAST:event_jMenuPedidoActionPerformed
@@ -240,8 +219,14 @@ public class FrameView extends javax.swing.JFrame {
         // TODO add your handling code here:
         ConsultaFornecedores consultafor = new ConsultaFornecedores();
         consultafor.setVisible(true);
-        
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jConCaminhoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConCaminhoesActionPerformed
+        // TODO add your handling code here:
+        ConsultaCaminhoes caminhoes = new ConsultaCaminhoes();
+        caminhoes.setVisible(true);
+    }//GEN-LAST:event_jConCaminhoesActionPerformed
 
     private void jConProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConProdutosActionPerformed
         // TODO add your handling code here:
@@ -249,11 +234,11 @@ public class FrameView extends javax.swing.JFrame {
         consultaProdutos.setVisible(true);
     }//GEN-LAST:event_jConProdutosActionPerformed
 
-    private void jConCaminhoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConCaminhoesActionPerformed
+    private void jConMotoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConMotoristaActionPerformed
         // TODO add your handling code here:
-        ConsultaCaminhoes caminhoes = new ConsultaCaminhoes();
-        caminhoes.setVisible(true);
-    }//GEN-LAST:event_jConCaminhoesActionPerformed
+        ConsultaMotoristas motorista = new ConsultaMotoristas();
+        motorista.setVisible(true);
+    }//GEN-LAST:event_jConMotoristaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,7 +259,6 @@ public class FrameView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jCadasProduto;
     private javax.swing.JMenuItem jConCaminhoes;
     private javax.swing.JMenuItem jConMotorista;
-    private javax.swing.JMenuItem jConPedidos;
     private javax.swing.JMenuItem jConProdutos;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar;

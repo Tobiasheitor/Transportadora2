@@ -63,14 +63,6 @@
             </Property>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jConPedidos">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="PEDIDOS"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jConPedidosActionPerformed"/>
-              </Events>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jConMotorista">
               <Properties>
                 <Property name="text" type="java.lang.String" value="MOTORISTAS"/>
