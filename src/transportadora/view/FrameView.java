@@ -5,6 +5,7 @@ import transportadora.view.cadastro.CadastroCaminhaoView;
 import transportadora.view.cadastro.CadastroFornecedorView;
 import transportadora.view.cadastro.CadastroMotoristaView;
 import transportadora.view.cadastro.CadastroProdutoView;
+import transportadora.view.consulta.ConsultaFornecedores;
 import transportadora.view.consulta.ConsultaMotorista;
 import transportadora.view.consulta.ConsultaPedidoView;
 import transportadora.view.pedido.PedidoView;
@@ -44,6 +45,7 @@ public class FrameView extends javax.swing.JFrame {
         jConMotorista = new javax.swing.JMenuItem();
         jConProdutos = new javax.swing.JMenuItem();
         jConCaminhoes = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuPedido = new javax.swing.JMenu();
 
         popupMenu1.setLabel("popupMenu1");
@@ -123,6 +125,14 @@ public class FrameView extends javax.swing.JFrame {
 
         jConCaminhoes.setText("CAMINHOES");
         jMenuConsulta.add(jConCaminhoes);
+
+        jMenuItem1.setText("FORNECEDORES");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenuConsulta.add(jMenuItem1);
 
         jMenuBar.add(jMenuConsulta);
 
@@ -210,6 +220,13 @@ public class FrameView extends javax.swing.JFrame {
         pedidoView.setVisible(true);
     }//GEN-LAST:event_jMenuPedidoMousePressed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        ConsultaFornecedores consultafor = new ConsultaFornecedores();
+        consultafor.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -234,6 +251,7 @@ public class FrameView extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuCadastro;
     private javax.swing.JMenu jMenuConsulta;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jMenuPedido;
     private java.awt.PopupMenu popupMenu1;
     // End of variables declaration//GEN-END:variables

@@ -36,7 +36,7 @@ public class TableMotorista extends AbstractTableModel {
     }
     
     public String getColumnName(){
-        return "Nome";
+        return "MOTORISTAS";
     }
     
 }
