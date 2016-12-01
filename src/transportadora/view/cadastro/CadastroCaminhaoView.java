@@ -5,6 +5,7 @@
  */
 package transportadora.view.cadastro;
 
+import javax.swing.JOptionPane;
 import transportadora.dao.CaminhaoDAO;
 import transportadora.dao.DataBase;
 import transportadora.model.Caminhao;
@@ -122,12 +123,18 @@ public class CadastroCaminhaoView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CaminhaoDAO caminhao = new CaminhaoDAO(DataBase.getEntyManegerFactory());
-        Caminhao cam = new Caminhao();
-        cam.setNome(jCaminhaoNome.getText());
-        cam.setCapacidade(Integer.parseInt(jCaminhaoCapacidade.getText()));
-        caminhao.create(cam);
-        
+        try{
+            CaminhaoDAO caminhao = new CaminhaoDAO(DataBase.getEntyManegerFactory());
+            Caminhao cam = new Caminhao();
+            cam.setNome(jCaminhaoNome.getText());
+            cam.setCapacidade(Integer.parseInt(jCaminhaoCapacidade.getText()));
+            caminhao.create(cam);
+            JOptionPane.showMessageDialog(null, "GRAVADO COM SUCESSO!");
+            jCaminhaoNome.setText(null);
+            jCaminhaoCapacidade.setText(null);
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "ERRO AO CRIAR!");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

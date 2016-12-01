@@ -13,9 +13,9 @@ import transportadora.dao.DataBase;
 import transportadora.dao.MotoristaDAO;
 import transportadora.model.Motorista;
 
-public class ConsultaMotorista extends javax.swing.JFrame {
+public class ConsultaMotoristas extends javax.swing.JFrame {
 
-    public ConsultaMotorista() {
+    public ConsultaMotoristas() {
         initComponents();
         inicializar();
     }
@@ -24,7 +24,7 @@ public class ConsultaMotorista extends javax.swing.JFrame {
          try {
             motoristaDao = new MotoristaDAO(DataBase.getEntyManegerFactory());
         } catch (Exception ex) {
-            Logger.getLogger(ConsultaMotorista.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConsultaMotoristas.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         motoristas = new ArrayList<>();
@@ -63,7 +63,6 @@ public class ConsultaMotorista extends javax.swing.JFrame {
         jTabelaMotoristas.setName("ge"); // NOI18N
         jScrollPane1.setViewportView(jTabelaMotoristas);
         jTabelaMotoristas.getAccessibleContext().setAccessibleName("nome");
-        jTabelaMotoristas.getAccessibleContext().setAccessibleDescription("");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("MOTORISTAS");
@@ -100,7 +99,7 @@ public class ConsultaMotorista extends javax.swing.JFrame {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultaMotorista().setVisible(true);
+                new ConsultaMotoristas().setVisible(true);
             }
         });
     }

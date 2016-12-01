@@ -5,10 +5,12 @@ import transportadora.view.cadastro.CadastroCaminhaoView;
 import transportadora.view.cadastro.CadastroFornecedorView;
 import transportadora.view.cadastro.CadastroMotoristaView;
 import transportadora.view.cadastro.CadastroProdutoView;
+import transportadora.view.consulta.ConsultaCaminhoes;
 import transportadora.view.consulta.ConsultaFornecedores;
-import transportadora.view.consulta.ConsultaMotorista;
-import transportadora.view.consulta.ConsultaPedidoView;
+import transportadora.view.consulta.ConsultaMotoristas;
+import transportadora.view.consulta.ConsultaPedidos;
 import transportadora.view.consulta.ConsultaProdutos;
+import transportadora.view.consulta.TableCaminhoes;
 import transportadora.view.pedido.PedidoView;
 
 
@@ -35,6 +37,7 @@ public class FrameView extends javax.swing.JFrame {
     private void initComponents() {
 
         popupMenu1 = new java.awt.PopupMenu();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
         jCadasFornecedor = new javax.swing.JMenuItem();
@@ -59,6 +62,8 @@ public class FrameView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
         setSize(new java.awt.Dimension(300, 300));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/transportadora/view/logos de caminhoes.jpg"))); // NOI18N
 
         jMenuCadastro.setText("CADASTRO");
         jMenuCadastro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -130,6 +135,11 @@ public class FrameView extends javax.swing.JFrame {
         jMenuConsulta.add(jConProdutos);
 
         jConCaminhoes.setText("CAMINHOES");
+        jConCaminhoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jConCaminhoesActionPerformed(evt);
+            }
+        });
         jMenuConsulta.add(jConCaminhoes);
 
         jMenuItem1.setText("FORNECEDORES");
@@ -161,11 +171,11 @@ public class FrameView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 498, Short.MAX_VALUE)
+            .addComponent(jLabel3)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 261, Short.MAX_VALUE)
+            .addComponent(jLabel3)
         );
 
         pack();
@@ -206,13 +216,13 @@ public class FrameView extends javax.swing.JFrame {
 
     private void jConPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConPedidosActionPerformed
         // TODO add your handling code here:
-        ConsultaPedidoView pedido = new ConsultaPedidoView();
+        ConsultaPedidos pedido = new ConsultaPedidos();
         pedido.setVisible(true);
     }//GEN-LAST:event_jConPedidosActionPerformed
 
     private void jConMotoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConMotoristaActionPerformed
         // TODO add your handling code here:
-        ConsultaMotorista motorista = new ConsultaMotorista();
+        ConsultaMotoristas motorista = new ConsultaMotoristas();
         motorista.setVisible(true);
     }//GEN-LAST:event_jConMotoristaActionPerformed
 
@@ -239,6 +249,12 @@ public class FrameView extends javax.swing.JFrame {
         consultaProdutos.setVisible(true);
     }//GEN-LAST:event_jConProdutosActionPerformed
 
+    private void jConCaminhoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConCaminhoesActionPerformed
+        // TODO add your handling code here:
+        ConsultaCaminhoes caminhoes = new ConsultaCaminhoes();
+        caminhoes.setVisible(true);
+    }//GEN-LAST:event_jConCaminhoesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -260,6 +276,7 @@ public class FrameView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jConMotorista;
     private javax.swing.JMenuItem jConPedidos;
     private javax.swing.JMenuItem jConProdutos;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuCadastro;
     private javax.swing.JMenu jMenuConsulta;
