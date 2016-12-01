@@ -28,6 +28,7 @@ public class ConsultaMotorista extends javax.swing.JFrame {
         }
         
         motoristas = new ArrayList<>();
+        motoristas = motoristaDao.findMotoristaEntities();
         consultaMotorista = new TableMotorista(motoristas);
         jTabelaMotoristas.setModel(consultaMotorista);
         consultaMotorista.setMotorista(motoristas);

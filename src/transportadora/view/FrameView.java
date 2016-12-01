@@ -7,6 +7,7 @@ import transportadora.view.cadastro.CadastroMotoristaView;
 import transportadora.view.cadastro.CadastroProdutoView;
 import transportadora.view.consulta.ConsultaMotorista;
 import transportadora.view.consulta.ConsultaPedidoView;
+import transportadora.view.pedido.PedidoView;
 
 
 /**
@@ -126,6 +127,16 @@ public class FrameView extends javax.swing.JFrame {
         jMenuBar.add(jMenuConsulta);
 
         jMenuPedido.setText("NOVO PEDIDO");
+        jMenuPedido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuPedidoMousePressed(evt);
+            }
+        });
+        jMenuPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuPedidoActionPerformed(evt);
+            }
+        });
         jMenuBar.add(jMenuPedido);
 
         setJMenuBar(jMenuBar);
@@ -188,6 +199,16 @@ public class FrameView extends javax.swing.JFrame {
         ConsultaMotorista motorista = new ConsultaMotorista();
         motorista.setVisible(true);
     }//GEN-LAST:event_jConMotoristaActionPerformed
+
+    private void jMenuPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPedidoActionPerformed
+
+    }//GEN-LAST:event_jMenuPedidoActionPerformed
+
+    private void jMenuPedidoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuPedidoMousePressed
+        // TODO add your handling code here:
+        PedidoView pedidoView = new PedidoView();
+        pedidoView.setVisible(true);
+    }//GEN-LAST:event_jMenuPedidoMousePressed
 
     /**
      * @param args the command line arguments
