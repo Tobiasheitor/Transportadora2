@@ -15,7 +15,7 @@ public class TableMotorista extends AbstractTableModel {
     public TableMotorista(List<Motorista>motoristas){
         this.motoristas = motoristas;
     }
-    public void setMotorista(List<Motorista> pessoas) {
+    public void setMotorista(List<Motorista> motoristas) {
         this.motoristas = motoristas;
     }
 
