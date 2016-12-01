@@ -35,8 +35,12 @@ public class TableMotorista extends AbstractTableModel {
         return motorista.getNome();
     }
     
-    public String getColumnName(){
-        return "MOTORISTAS";
+    @Override
+    public String getColumnName(int num){
+        if(num == 0){
+            return "NOMES";
+        }
+        return "ERROU";
     }
     
 }

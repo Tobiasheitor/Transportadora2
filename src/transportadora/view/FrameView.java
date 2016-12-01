@@ -8,6 +8,7 @@ import transportadora.view.cadastro.CadastroProdutoView;
 import transportadora.view.consulta.ConsultaFornecedores;
 import transportadora.view.consulta.ConsultaMotorista;
 import transportadora.view.consulta.ConsultaPedidoView;
+import transportadora.view.consulta.ConsultaProdutos;
 import transportadora.view.pedido.PedidoView;
 
 
@@ -121,6 +122,11 @@ public class FrameView extends javax.swing.JFrame {
         jMenuConsulta.add(jConMotorista);
 
         jConProdutos.setText("PRODUTOS");
+        jConProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jConProdutosActionPerformed(evt);
+            }
+        });
         jMenuConsulta.add(jConProdutos);
 
         jConCaminhoes.setText("CAMINHOES");
@@ -226,6 +232,12 @@ public class FrameView extends javax.swing.JFrame {
         consultafor.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jConProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConProdutosActionPerformed
+        // TODO add your handling code here:
+        ConsultaProdutos consultaProdutos = new ConsultaProdutos();
+        consultaProdutos.setVisible(true);
+    }//GEN-LAST:event_jConProdutosActionPerformed
 
     /**
      * @param args the command line arguments

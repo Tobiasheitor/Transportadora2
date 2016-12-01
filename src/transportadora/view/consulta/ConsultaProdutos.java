@@ -9,34 +9,36 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import transportadora.dao.DataBase;
-import transportadora.dao.FornecedorDAO;
-import transportadora.model.Fornecedor;
+import transportadora.dao.ProdutoDAO;
+import transportadora.model.Produto;
 
 /**
  *
  * @author USUARIO
  */
-public class ConsultaFornecedores extends javax.swing.JFrame {
+public class ConsultaProdutos extends javax.swing.JFrame {
 
- 
-    public ConsultaFornecedores() {
+    /**
+     * Creates new form ConsultaProdutos
+     */
+    public ConsultaProdutos() {
         initComponents();
         inicializar();
     }
     
     public void inicializar(){
         try{
-            fornecedorDao = new FornecedorDAO(DataBase.getEntyManegerFactory()); 
+            produtoDAO = new ProdutoDAO(DataBase.getEntyManegerFactory());
         }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Erro ao conectar ao Banco!");
+            JOptionPane.showMessageDialog(null, "Erro ao Conectar!");
         }
-        fornecedores = new ArrayList<>();
-        fornecedores = fornecedorDao.findFornecedorEntities();
-        tabelaFornecedores = new TableFornecedores(fornecedores);
-        jTableFornecedores.setModel(tabelaFornecedores);
-        tabelaFornecedores.setFornecedor(fornecedores);
-        tabelaFornecedores.fireTableDataChanged();
-        
+        produtos = new ArrayList<>();
+        produtos = produtoDAO.findProdutoEntities();
+        tabelaProdutos = new TableProdutos(produtos);
+        jTableProdutos.setModel(tabelaProdutos);
+        tabelaProdutos.setProduto(produtos);
+        tabelaProdutos.fireTableDataChanged();
+    
     }
     
     /**
@@ -50,32 +52,35 @@ public class ConsultaFornecedores extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableFornecedores = new javax.swing.JTable();
+        jTableProdutos = new javax.swing.JTable();
 
-        jTableFornecedores.setModel(new javax.swing.table.DefaultTableModel(
+        jTableProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Title 1"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTableFornecedores);
+        jScrollPane1.setViewportView(jTableProdutos);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -83,16 +88,15 @@ public class ConsultaFornecedores extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -116,20 +120,20 @@ public class ConsultaFornecedores extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultaFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultaFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultaFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultaFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultaFornecedores().setVisible(true);
+                new ConsultaProdutos().setVisible(true);
             }
         });
     }
@@ -137,10 +141,10 @@ public class ConsultaFornecedores extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableFornecedores;
+    private javax.swing.JTable jTableProdutos;
     // End of variables declaration//GEN-END:variables
-    private FornecedorDAO fornecedorDao;
-    private Fornecedor fornecedor;
-    private List<Fornecedor> fornecedores;
-    private TableFornecedores tabelaFornecedores;
+    private ProdutoDAO produtoDAO;
+    private Produto produto;
+    private List<Produto> produtos;
+    private TableProdutos tabelaProdutos;
 }

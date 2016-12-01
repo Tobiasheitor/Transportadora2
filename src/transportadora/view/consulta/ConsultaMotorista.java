@@ -30,11 +30,8 @@ public class ConsultaMotorista extends javax.swing.JFrame {
         motoristas = new ArrayList<>();
         motoristas = motoristaDao.findMotoristaEntities();
         consultaMotorista = new TableMotorista(motoristas);
-        consultaMotorista.getColumnName();
         jTabelaMotoristas.setModel(consultaMotorista);
-        consultaMotorista.setMotorista(motoristas);
         consultaMotorista.fireTableDataChanged();
-        
     }
  
     @SuppressWarnings("unchecked")

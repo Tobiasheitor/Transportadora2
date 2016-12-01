@@ -7,26 +7,26 @@ package transportadora.view.consulta;
 
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import transportadora.model.Fornecedor;
+import transportadora.model.Produto;
 
 /**
  *
  * @author USUARIO
  */
-public class TableFornecedores extends AbstractTableModel{
+public class TableProdutos extends AbstractTableModel{
     
-    List<Fornecedor> fornecedores;
+    List<Produto> produtos;
     
-    public TableFornecedores(List<Fornecedor>fornecedores){
-        this.fornecedores = fornecedores;
+    public TableProdutos(List<Produto>produtos){
+        this.produtos = produtos;
     }
-    public void setFornecedor(List<Fornecedor> fornecedores) {
-        this.fornecedores = fornecedores;
+    public void setProduto(List<Produto> produtos) {
+        this.produtos = produtos;
     }
-
+    
     @Override
     public int getRowCount() {
-        return fornecedores.size();
+        return produtos.size();
     }
 
     @Override
@@ -36,12 +36,12 @@ public class TableFornecedores extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Fornecedor fornecedor = fornecedores.get(rowIndex);
-        return fornecedor.getNome();
-    }
-    @Override
-    public String getColumnName(int num){
-        return "FORNECEDORES";
+        Produto produto = produtos.get(rowIndex);
+        return produto.getNome();
     }
     
+    @Override
+    public String getColumnName(int num){
+        return "PRODUTOS";
+    }
 }
